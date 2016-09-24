@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 #include <assert.h>
 
 #include IMPL
@@ -23,6 +24,7 @@ static double diff_in_second(struct timespec t1, struct timespec t2)
 
 int main(int argc, char *argv[])
 {
+    printf("pid: %d \n",getpid());
     FILE *fp;
     int i = 0;
     char line[MAX_LAST_NAME_SIZE];

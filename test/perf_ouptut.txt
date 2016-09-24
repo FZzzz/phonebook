@@ -1,0 +1,11 @@
+ Performance counter stats for './phonebook_orig' (10 runs):
+
+           984,694      cache-misses              #   79.880 % of all cache refs      ( +-  1.50% )
+         1,232,724      cache-references                                              ( +-  0.50% )
+         2,541,351      L1-dcache-load-misses                                         ( +-  0.15% )
+   <not supported>      L1-dcache-store-misses   
+   <not supported>      L1-dcache-prefetch-misses
+            47,799      L1-icache-load-misses                                         ( +-  4.66% )
+
+       0.067069276 seconds time elapsed                                          ( +-  0.20% )
+###
