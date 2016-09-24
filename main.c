@@ -8,6 +8,7 @@
 #include IMPL
 
 #define DICT_FILE "./dictionary/words.txt"
+#define MAX_TABLE_SIZE
 
 static double diff_in_second(struct timespec t1, struct timespec t2)
 {
@@ -54,7 +55,11 @@ int main(int argc, char *argv[])
             i++;
         line[i - 1] = '\0';
         i = 0;
+#if OPT
+        e = append_Hash(line, e);
+#else
         e = append(line, e);
+#endif   //get hash
     }
     clock_gettime(CLOCK_REALTIME, &end);
     cpu_time1 = diff_in_second(start, end);
