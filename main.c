@@ -49,6 +49,11 @@ int main(int argc, char *argv[])
 #if defined(__GNUC__)
     __builtin___clear_cache((char *) pHead, (char *) pHead + sizeof(entry));
 #endif
+
+#if OPT
+    cabinet* table = create_table();
+    assert(table && "table creation failed");
+#endif
     clock_gettime(CLOCK_REALTIME, &start);
     while (fgets(line, sizeof(line), fp)) {
         while (line[i] != '\0')
@@ -56,11 +61,14 @@ int main(int argc, char *argv[])
         line[i - 1] = '\0';
         i = 0;
 #if OPT
-        e = append_Hash(line, e);
+        e = append_hash(line, e , table);
 #else
         e = append(line, e);
-#endif   //get hash
+#endif
     }
+
+    printf("append success\n");
+
     clock_gettime(CLOCK_REALTIME, &end);
     cpu_time1 = diff_in_second(start, end);
 
@@ -82,7 +90,11 @@ int main(int argc, char *argv[])
 #endif
     /* compute the execution time */
     clock_gettime(CLOCK_REALTIME, &start);
+#if OPT
+    findName_hash(input , e , table);
+#else
     findName(input, e);
+#endif
     clock_gettime(CLOCK_REALTIME, &end);
     cpu_time2 = diff_in_second(start, end);
 

@@ -26,15 +26,15 @@ typedef struct __PHONE_BOOK_ENTRY {
 
 typedef struct __CABINET {
     entry* value;
-    entry* next;
+    struct __CABINET* next;
 } cabinet;
 
 cabinet* create_table(void);
 
 entry *findName(char lastname[], entry *pHead);
 entry *append(char lastName[], entry *e);
-entry *findName_Hash(char lastname[], entry *pHead , cabinet* table);
-entry *append_Hash(char lastName[], entry *e , cabinet* table);
+entry *findName_hash(char lastname[], entry *pHead , cabinet table[]);
+entry *append_hash(char lastName[], entry *e , cabinet table[]);
 unsigned int BKDRHash(char* str);
 
 
