@@ -35,7 +35,6 @@ entry *findName_hash(char lastname[], entry *pHead , cabinet table[])
     unsigned int hash_value = BKDRHash(lastname);
     unsigned int index = hash_value % MAX_KEY_VALUES;
     if(!table[index].value) {
-        printf("NOT FOUND %s \n" , lastname);
         return NULL;
     }
     if(strcasecmp(lastname, table[index].value->lastName) == 0) {
@@ -48,7 +47,6 @@ entry *findName_hash(char lastname[], entry *pHead , cabinet table[])
             next_node = next_node->next;
         }
         if(!next_node) {
-            printf("NOT FOUND %s \n", lastname);
             return NULL;
         }
     }

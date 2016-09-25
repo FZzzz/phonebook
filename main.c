@@ -66,9 +66,6 @@ int main(int argc, char *argv[])
         e = append(line, e);
 #endif
     }
-
-    printf("append success\n");
-
     clock_gettime(CLOCK_REALTIME, &end);
     cpu_time1 = diff_in_second(start, end);
 
